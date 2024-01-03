@@ -24,3 +24,4 @@ magick image.png -format "%[hex:u.p{19,14}]\n" info:
 
 how to get the pixel color distribution to specify the most accurate -fuzz percentage to be more precise?
 
+Testpages.pdf is a scan of two pages of different size in an Espon ES-580W. Both pages have the same width and there is gray space on the side border of the second page. The first page is A4, but the bottom is cropped by Xsane, I suppose.
