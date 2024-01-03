@@ -6,7 +6,7 @@ Auto-trimming on cli
 
 This trims ES-580W scanned images successfully so far, but with a little high -fuzz, so not so precise:
 
-convert Testpages.pdf -trim +repage -bordercolor \#B8B8B8B8B8B8FFFF -border 10 -fuzz 30% -trim +repage out.pdf
+convert -density 300 Testpages.pdf -trim +repage -bordercolor \#BCBCBC -border 10 -fuzz 30% -trim +repage out.pdf
 
 ### Explanations:
 
@@ -25,3 +25,10 @@ magick image.png -format "%[hex:u.p{19,14}]\n" info:
 how to get the pixel color distribution to specify the most accurate -fuzz percentage to be more precise?
 
 Testpages.pdf is a scan of two pages of different size in an Espon ES-580W. Both pages have the same width and there is gray space on the side border of the second page. The first page is A4, but the bottom is cropped by Xsane, I suppose.
+
+
+mean color of an image area:
+convert image.gif -crop 6x7+8+9 -resize 1x1\! -format "%[fx:int(255*r+.5)],%[fx:int(255*g+.5)],%[fx:int(255*b+.5)]" info:-
+
+Or after copping the area:
+onvert Testpage-cropped.png -resize 1x1 txt:
