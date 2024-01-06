@@ -8,6 +8,26 @@ OSC is the official open and open source way to do this.
 pacman -S liblo
 
 
+To bind keys to oscsend:
+https://wiki.archlinux.org/title/extra_keyboard_keys
+
+pacman -S wev
+
+
+[14:     wl_keyboard] key: serial: 40384; time: 11917082; key: 156; state: 1 (pressed)
+                      sym: XF86Launch1  (269025089), utf8: ''
+[14:     wl_keyboard] key: serial: 40385; time: 11917083; key: 156; state: 0 (released)
+                      sym: XF86Launch1  (269025089), utf8: ''
+[14:     wl_keyboard] key: serial: 40386; time: 11917592; key: 156; state: 1 (pressed)
+                      sym: XF86Launch1  (269025089), utf8: ''
+[14:     wl_keyboard] key: serial: 40387; time: 11917592; key: 156; state: 0 (released)
+                      sym: XF86Launch1  (269025089), utf8: ''
+[14:     wl_keyboard] key: serial: 40388; time: 11918039; key: 156; state: 1 (pressed)
+                      sym: XF86Launch1  (269025089), utf8: ''
+[14:     wl_keyboard] key: serial: 40389; time: 11918039; key: 156; state: 0 (released)
+                      sym: XF86Launch1  (269025089), utf8: ''
+
+
 
 < x42> SparFuxXx: if Ardour has no focus, you have to "remote control" it. Various options exist for that.
 17:46 < x42> SparFuxXx: you could use OSC (enable it in Ardour Preferences > Control Surfaces.  then bind some 
@@ -23,3 +43,4 @@ pacman -S liblo
 17:51 < SparFuxXx> x42: Thanks for the hint. I will investigate on this.
 17:51 < x42> SparFuxXx: you're welcome
 
+cat /proc/bus/input/devices
