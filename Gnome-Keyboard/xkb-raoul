@@ -1,0 +1,118 @@
+//
+
+    Copyright 2008,2013,2017,2023 Raoul Bönisch
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+    Dieses Programm ist Freie Software: Sie können es unter den Bedingungen
+    der GNU General Public License, wie von der Free Software Foundation,
+    Version 3 der Lizenz oder (nach Ihrer Wahl) jeder neueren
+    veröffentlichten Version, weiter verteilen und/oder modifizieren.
+
+    Dieses Programm wird in der Hoffnung bereitgestellt, dass es nützlich sein wird, jedoch
+    OHNE JEDE GEWÄHR,; sogar ohne die implizite
+    Gewähr der MARKTFÄHIGKEIT oder EIGNUNG FÜR EINEN BESTIMMTEN ZWECK.
+    Siehe die GNU General Public License für weitere Einzelheiten.
+
+    Sie sollten eine Kopie der GNU General Public License zusammen mit diesem
+    Programm erhalten haben. Wenn nicht, siehe <https://www.gnu.org/licenses/>.
+
+//
+// Pretty cool XKB addons created by Raoul Bönisch
+#// use xkb options instead of variants
+#// https://www.blaenkdenum.com/posts/custom-xkb-options-with-gnome/
+//
+// 1. export the locale stuff
+// 2. Copy this file to /usr/share/X11/xkb/symbols/raoul
+// 3. include in /usr/share/X11/xkb/rules/evdev at end of file:
+//  ! option        =       symbols
+//  raoul:altgr-syms      =       +raoul(altgr-syms)
+// 4. include in /usr/share/X11/xkb/rules/evdev.xml:
+// close to "eurosign" in which group?
+// search for "currencysign" and add there
+// appears in "gnome-tweak-tool" command in "Keyboard & Mouse -> Additional Layout Options -> currencysign title
+
+/*
+    <group allowMultipleSelection="true">
+      <!-- Raoul own special keyboard additions -->
+      <configItem>
+        <name>raoulsaddons</name>
+        <description>Raoul's addons</description>
+      </configItem>
+      <option>
+        <configItem>
+          <name>raoul:altgr-syms</name>
+          <description>Raoul altgr-syms</description>
+        </configItem>
+      </option>
+    </group>
+*/
+
+// 5. gsettings set org.gnome.desktop.input-sources sources "[('xkb','us'), ('xkb', 'de')]"
+// 6. gsettings set org.gnome.desktop.input-sources xkb-options "['raoul:altgr-syms']"
+// 7. put locales in ~/.config/locale.conf
+//
+
+partial alphanumeric_keys
+xkb_symbols "altgr-syms" {
+
+	// WTF! eurosign is missing cent
+	// include "eurosign(e)"
+	// include "eurosign(5)"
+
+	include "raoul(altgr-umlauts)"
+
+	include "raoul(altgr-signs)"
+
+	include "raoul(altgr-euro-cent)"
+
+	include "level3(ralt_switch)"
+
+};
+
+partial alphanumeric_keys
+xkb_symbols "altgr-umlauts" {
+
+    name[Group1]= "German Umlauts - hold AltGr and press german position";
+
+    // Alphanumeric section
+    key <AC10> { [   NoSymbol,   NoSymbol,    odiaeresis,  Odiaeresis ] };
+    key <AC11> { [   NoSymbol,   NoSymbol,    adiaeresis,  Adiaeresis ] };
+    key <AD11> { [   NoSymbol,   NoSymbol,    udiaeresis,  Udiaeresis ] };
+    key <AE11> { [   NoSymbol,   NoSymbol,        ssharp,      ssharp ] };
+};
+
+partial alphanumeric_keys
+xkb_symbols "altgr-signs" {
+
+    name[Group1]= "Frequently used signs - hold AltGr and press character";
+
+    // Alphanumeric section
+    key <AB07> { [   NoSymbol,   NoSymbol,            mu,          mu ] };
+    key <AD10> { [   NoSymbol,   NoSymbol,     paragraph,   paragraph ] };
+    key <LSGT> { [ guillemotleft, guillemotright, rightarrow, leftarrow ] };
+};
+
+partial alphanumeric_keys
+xkb_symbols "altgr-euro-cent" {
+
+// Euro on "e"
+    // key <AD03> { [   NoSymbol,   NoSymbol,      EuroSign,        cent ] };
+
+// Euro on "5"
+    key <AE05> { [   NoSymbol,   NoSymbol,      EuroSign,        cent ] };
+};
+
+! option        =       symbols
+  raoul:altgr-syms      =       +raoul(altgr-syms)
