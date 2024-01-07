@@ -1,6 +1,11 @@
 Scanning with Epson ES-580W
 ===========================
 
+Disk usage
+----------
+
+To create good quality PDF file of small size use option to convert: -compress jpeg -quality 99
+
 Auto-trimming on cli
 --------------------
 
@@ -25,6 +30,8 @@ This does the following:
  * run trim again, this time with a little fuzz as the scanner scans empty space on the sides: -fuzz 8% -trim +repage
 
  * save output to file out.pdf
+
+
 
 
 Without chopping the right border the fuzz needs to be higher for trim to work:
@@ -55,3 +62,7 @@ convert image.gif -crop 6x7+8+9 -resize 1x1\! -format "%[fx:int(255*r+.5)],%[fx:
 
 Or after copping the area:
 convert Testpage-cropped.png -resize 1x1 txt:
+
+Turn the scan upright, 40% works for most pictures:
+
+convert -density 300 Testpages-2.pdf -deskew 40% out.pdf
