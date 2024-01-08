@@ -1,5 +1,5 @@
 //
-
+/*
     Copyright 2008,2013,2017,2023 Raoul Bönisch
 
     This program is free software: you can redistribute it and/or modify
@@ -27,7 +27,7 @@
 
     Sie sollten eine Kopie der GNU General Public License zusammen mit diesem
     Programm erhalten haben. Wenn nicht, siehe <https://www.gnu.org/licenses/>.
-
+*/
 //
 // Pretty cool XKB addons created by Raoul Bönisch
 #// use xkb options instead of variants
@@ -113,6 +113,3 @@ xkb_symbols "altgr-euro-cent" {
 // Euro on "5"
     key <AE05> { [   NoSymbol,   NoSymbol,      EuroSign,        cent ] };
 };
-
-! option        =       symbols
-  raoul:altgr-syms      =       +raoul(altgr-syms)
