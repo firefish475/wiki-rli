@@ -7,6 +7,19 @@ OSC is the official open and open source way to do this.
 
 pacman -S liblo
 
+ThinkVantage key can be bound in graphical settings in Gnome.
+
+Then list all Gnome keybindings:
+for k in `gsettings list-keys org.gnome.desktop.wm.keybindings`; do echo $k = `gsettings get org.gnome.desktop.wm.keybindings $k`; done
+
+gsettings list-recursively  org.gnome.desktop.wm.keybindings | sort | more
+
+
+gsettings set org.gnome.settings-daemon.plugins.media-keys volume-up "['Launch1']"
+
+This works, test by resetting volume-down and volume-up and binding it to Launch1. So the ThinkVantage key is Launch1 in Archlinux Gnome3.
+
+gsettings list-keys org.gnome.settings-daemon.plugins.media-keys
 
 
 < x42> SparFuxXx: if Ardour has no focus, you have to "remote control" it. Various options exist for that.
