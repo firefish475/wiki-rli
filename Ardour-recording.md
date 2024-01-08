@@ -14,6 +14,10 @@ https://wiki.archlinux.org/title/extra_keyboard_keys
 pacman -S wev
 
 
+https://www.suse.com/de-de/support/kb/doc/?id=000019319
+gsettings get org.gnome.settings-daemon.plugins.media-keys custom-keybindings
+
+
 [14:     wl_keyboard] key: serial: 40384; time: 11917082; key: 156; state: 1 (pressed)
                       sym: XF86Launch1  (269025089), utf8: ''
 [14:     wl_keyboard] key: serial: 40385; time: 11917083; key: 156; state: 0 (released)
@@ -44,3 +48,33 @@ pacman -S wev
 17:51 < x42> SparFuxXx: you're welcome
 
 cat /proc/bus/input/devices
+
+
+The following commands must be run as the user.
+
+Command to create the 'custom0' key binding:
+
+gsettings set  org.gnome.settings-daemon.plugins.media-keys custom-keybindings "['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/']"
+
+Command to enter the name of the binding:
+
+gsettings set  org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ name 'File Browser'
+
+Command to enter the command to run:
+
+gsettings set  org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ command 'nautilus'
+
+Command to enter the key combination that will run the command:
+
+gsettings set  org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ binding '<Super>s'
+
+  553  vim Ardour-recording.md 
+  554  gsettings set  org.gnome.settings-daemon.plugins.media-keys custom-keybindings "['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/']"
+  555  gsettings set  org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ name 'OSCsend record'
+  556  vim Ardour-recording.md 
+  557  gsettings set  org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ command 'nautilus'
+  558  gsettings set  org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ binding "['Launch1']"
+  559  history
+  560  man history
+  561  history 10
+  562  history 10 >> Ardour-recording.md 
