@@ -143,3 +143,17 @@ oscsend osc.udp://localhost:3819 /toggle_roll/rec_enable_toggle
 <@las> SparFuxXx: my point was that if you make the Ardour "Big Clock" window visible, it can also function 
              as the "recording is active" indicator, although it is certainly larger than "a red dot"
 
+
+gsettings set org.gnome.settings-daemon.plugins.media-keys custom-keybindings "[
+'/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/',
+'/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/',
+'/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/',
+'/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3/',
+'/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom4/',
+'/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom5/',
+'/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom6/',
+'/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom7/',
+'/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom8/',
+'/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom9/',
+'/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom10/',
+'/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom11/']"

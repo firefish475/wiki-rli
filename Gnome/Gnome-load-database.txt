@@ -1,34 +1,34 @@
 [custom6]
 binding='<Super>F6'
-command='bash -c "qrencode -o - -s 15 \\"`xclip -o`\\" | display -"'
+command='bash -c "qrencode -o - -s 15 \\"`wl-paste -p`\\" | display -"'
 name='lukey qrencode'
 
 [custom5]
 binding='<Shift><Super>F4'
-command='bash -c "firefox \\"http://www.google.de/search?q=`xclip -o`\\""'
+command='bash -c "firefox \\"http://www.google.de/search?q=`wl-paste -p`\\""'
 name='lukey google.de'
 
 [custom4]
 binding='<Super>F4'
-command='bash -c "firefox \\"http://www.google.com/search?q=`xclip -o`\\""'
+command='bash -c "firefox \\"http://www.google.com/search?q=`wl-paste -p`\\""'
 name='lukey google.com'
 
 [custom3]
 binding='<Shift><Super>F3'
-command='bash -c "firefox \\"http://de.wikipedia.org/wiki/`xclip -o`\\""'
+command='bash -c "firefox \\"http://de.wikipedia.org/wiki/`wl-paste -p`\\""'
 name='lukey de.wikipedia'
 
 [custom2]
 binding='<Super>F3'
-command='bash -c "firefox \\"http://en.wikipedia.org/wiki/`xclip -o`\\""'
+command='bash -c "firefox \\"http://en.wikipedia.org/wiki/`wl-paste -p`\\""'
 name='lukey en.wikipedia'
 
 [custom1]
 binding='<Super>F5'
-command='bash -c "firefox \\"http://en.wiktionary.org/wiki/`xclip -o`\\""'
+command='bash -c "firefox \\"http://en.wiktionary.org/wiki/`wl-paste -p`\\""'
 name='lukey en.wiktionary'
 
 [custom0]
 binding='<Super>F2'
-command='bash -c "firefox \\"http://dict.cc/?s=`xclip -o`\\""'
+command='bash -c "firefox \\"http://dict.cc/?s=`wl-paste -p`\\""'
 name='lukey dict.cc'
