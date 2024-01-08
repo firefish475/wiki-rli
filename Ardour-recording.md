@@ -93,6 +93,8 @@ gsettings set  org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/o
   558  gsettings set  org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ binding "['Launch1']"
 
 
+https://docs.fedoraproject.org/en-US/quick-docs/gnome-setting-key-shortcut/
+
 
 gsettings set org.gnome.settings-daemon.plugins.media-keys custom-keybindings "['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/']"
 gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ name 'Teststart nautilus'
@@ -101,7 +103,14 @@ gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/or
 
   562  history 10 >> Ardour-recording.md 
 gsettings set  org.gnome.settings-daemon.plugins.media-keys custom-keybindings "['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/']"
-gsettings set  org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ name 'OSCsend record'
-gsettings set  org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ command 'oscsend osc.udp://localhost:3819 /toggle_roll' 
+gsettings set  org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ name 'OSCsend Ardour record'
+gsettings set  org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ command 'oscsend osc.udp://localhost:3819 /toggle_roll/rec_enable_toggle' 
 gsettings set  org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ binding "['Launch1']"
+
+
+oscsend osc.udp://localhost:3819 /toggle_roll/rec_enable_toggle
+
+
+<@las> SparFuxXx: my point was that if you make the Ardour "Big Clock" window visible, it can also function 
+             as the "recording is active" indicator, although it is certainly larger than "a red dot"
 
