@@ -1,6 +1,35 @@
 Record audio with ardour
 ========================
 
+The Ardour ThinkVantage Recording Button
+----------------------------------------
+
+pacman -S ardour liblo
+
+Ardour-rec.sh:
+
+#!/bin/bash
+#
+/usr/bin/play /usr/share/sounds/gnome/default/alerts/click.ogg &
+oscsend osc.udp://localhost:3819 /rec_enable_toggle
+oscsend osc.udp://localhost:3819 /toggle_roll
+
+gnome-control-center -> Keyboard -> Keyboard Shortcuts -> View and Customize Shortcuts -> Custom Shortcuts -> Add Shortcut or '+' -> OSCsend Ardour rec -> Ardour-rec.sh -> press ThinkVantage or other shortcut key
+
+Start ardour
+Window -> Big Clock (turns red while recording)
+
+This does not work (why?, how to configure ThinkVantage via gsettings?) :
+
+gsettings set  org.gnome.settings-daemon.plugins.media-keys custom-keybindings "['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/']"
+gsettings set  org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ name 'OSCsend Ardour record'
+gsettings set  org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ command 'oscsend osc.udp://localhost:3819 /toggle_roll/rec_enable_toggle' 
+gsettings set  org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ binding "['Launch1']"
+
+
+The way to discover this
+------------------------
+
 The aim is to record audio without window focus with a fixed keyboard hotkey easily accessible. Even a midi-pedal could be great!
 
 OSC is the official open and open source way to do this.
