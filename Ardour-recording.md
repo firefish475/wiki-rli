@@ -135,6 +135,7 @@ gsettings set  org.gnome.settings-daemon.plugins.media-keys custom-keybindings "
 gsettings set  org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ name 'OSCsend Ardour record'
 gsettings set  org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ command 'oscsend osc.udp://localhost:3819 /toggle_roll/rec_enable_toggle' 
 gsettings set  org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ binding "['Launch1']"
+gsettings set  org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ command '~/Ardour-rec.sh' 
 
 
 oscsend osc.udp://localhost:3819 /toggle_roll/rec_enable_toggle
