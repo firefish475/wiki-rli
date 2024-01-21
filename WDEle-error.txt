@@ -1,0 +1,30 @@
+[14546.123548] usb 10-2: new SuperSpeed USB device number 3 using xhci_hcd
+[14546.141460] usb 10-2: New USB device found, idVendor=1058, idProduct=2621, bcdDevice=10.34
+[14546.141471] usb 10-2: New USB device strings: Mfr=1, Product=2, SerialNumber=3
+[14546.141474] usb 10-2: Product: Elements 2621
+[14546.141477] usb 10-2: Manufacturer: Western Digital
+[14546.141480] usb 10-2: SerialNumber: 575832324443325233465A4E
+[14546.145738] usb-storage 10-2:1.0: USB Mass Storage device detected
+[14546.145998] scsi host4: usb-storage 10-2:1.0
+[14547.154285] scsi 4:0:0:0: Direct-Access     WD       Elements 2621    1034 PQ: 0 ANSI: 6
+[14547.158243] sd 4:0:0:0: [sdb] Spinning up disk...
+[14548.163434] ......ready
+[14553.230496] sd 4:0:0:0: [sdb] Very big device. Trying to use READ CAPACITY(16).
+[14553.230712] sd 4:0:0:0: [sdb] 9767475200 512-byte logical blocks: (5.00 TB/4.55 TiB)
+[14553.230716] sd 4:0:0:0: [sdb] 4096-byte physical blocks
+[14553.231372] sd 4:0:0:0: [sdb] Write Protect is off
+[14553.231376] sd 4:0:0:0: [sdb] Mode Sense: 47 00 10 08
+[14553.232070] sd 4:0:0:0: [sdb] No Caching mode page found
+[14553.232075] sd 4:0:0:0: [sdb] Assuming drive cache: write through
+[14553.418584]  sdb: sdb1
+[14553.419047] sd 4:0:0:0: [sdb] Attached SCSI disk
+[14565.987895] BTRFS: device label WDEle devid 1 transid 158 /dev/mapper/luks-0475335f-5fdd-4329-9241-26a7320c92ec scanned by pool-udisksd (15284)
+[14565.989754] BTRFS info (device dm-1): first mount of filesystem c72a890a-8507-4400-8fe5-56266895cff0
+[14565.989771] BTRFS info (device dm-1): using xxhash64 (xxhash64-generic) checksum algorithm
+[14565.989780] BTRFS info (device dm-1): using free space tree
+[14719.642303] sd 4:0:0:0: [sdb] tag#0 FAILED Result: hostbyte=DID_OK driverbyte=DRIVER_OK cmd_age=0s
+[14719.642312] sd 4:0:0:0: [sdb] tag#0 Sense Key : Aborted Command [current] 
+[14719.642316] sd 4:0:0:0: [sdb] tag#0 Add. Sense: Information unit iuCRC error detected
+[14719.642320] sd 4:0:0:0: [sdb] tag#0 CDB: Read(16) 88 00 00 00 00 00 09 ab ff b8 00 00 02 00 00 00
+[14719.642328] I/O error, dev sdb, sector 162267064 op 0x0:(READ) flags 0x84700 phys_seg 64 prio class 2
+
