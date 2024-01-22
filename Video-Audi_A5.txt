@@ -1,0 +1,5 @@
+Das beste Format ist:
+
+MPEG4 H.264 (MPEG4 AVC)
+sound 320 kbit/s 48 kHz
+video 2000 kbit/s 720x576 pts 25fps
