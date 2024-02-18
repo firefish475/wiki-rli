@@ -60,7 +60,7 @@
 */
 
 // 5. gsettings set org.gnome.desktop.input-sources sources "[('xkb','us'), ('xkb', 'de')]"
-// 6. gsettings set org.gnome.desktop.input-sources xkb-options "['raoul:altgr-syms']"
+// 6. gsettings set org.gnome.desktop.input-sources xkb-options "['raoul:altgr-syms', 'eurosign:e']"
 // 7. put locales in ~/.config/locale.conf
 //
 
