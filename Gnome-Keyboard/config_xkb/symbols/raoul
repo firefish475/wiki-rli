@@ -1,0 +1,49 @@
+partial alphanumeric_keys
+xkb_symbols "altgr-syms" {
+
+	// WTF! eurosign is missing cent
+	// include "eurosign(e)"
+	// include "eurosign(5)"
+
+	include "raoul(altgr-umlauts)"
+
+	include "raoul(altgr-signs)"
+
+	include "raoul(altgr-euro-cent)"
+
+	include "level3(ralt_switch)"
+
+};
+
+partial alphanumeric_keys
+xkb_symbols "altgr-umlauts" {
+
+    name[Group1]= "German Umlauts - hold AltGr and press german position";
+
+    // Alphanumeric section
+    key <AC10> { [   NoSymbol,   NoSymbol,    odiaeresis,  Odiaeresis ] };
+    key <AC11> { [   NoSymbol,   NoSymbol,    adiaeresis,  Adiaeresis ] };
+    key <AD11> { [   NoSymbol,   NoSymbol,    udiaeresis,  Udiaeresis ] };
+    key <AE11> { [   NoSymbol,   NoSymbol,        ssharp,      ssharp ] };
+};
+
+partial alphanumeric_keys
+xkb_symbols "altgr-signs" {
+
+    name[Group1]= "Frequently used signs - hold AltGr and press character";
+
+    // Alphanumeric section
+    key <AB07> { [   NoSymbol,   NoSymbol,            mu,          mu ] };
+    key <AD10> { [   NoSymbol,   NoSymbol,     paragraph,   paragraph ] };
+    key <LSGT> { [ guillemotleft, guillemotright, rightarrow, leftarrow ] };
+};
+
+partial alphanumeric_keys
+xkb_symbols "altgr-euro-cent" {
+
+// Euro on "e"
+    // key <AD03> { [   NoSymbol,   NoSymbol,      EuroSign,        cent ] };
+
+// Euro on "5"
+    key <AE05> { [   NoSymbol,   NoSymbol,      EuroSign,        cent ] };
+};

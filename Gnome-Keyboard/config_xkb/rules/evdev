@@ -1,0 +1,4 @@
+! include %S/evdev
+
+! option        	=       symbols
+  raoul:altgr-syms      =       +raoul(altgr-syms)

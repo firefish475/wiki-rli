@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xkbConfigRegistry SYSTEM "xkb.dtd">
+<xkbConfigRegistry version="1.1">
+  <optionList>
+    <group allowMultipleSelection="true">
+      <!-- Raoul own special keyboard additions -->
+      <configItem>
+        <name>raoulsaddons</name>
+        <description>Raoul's addons</description>
+      </configItem>
+      <option>
+        <configItem>
+          <name>raoul:altgr-syms</name>
+          <description>Raoul altgr-syms</description>
+        </configItem>
+      </option>
+    </group>
+  </optionList>
+</xkbConfigRegistry>
