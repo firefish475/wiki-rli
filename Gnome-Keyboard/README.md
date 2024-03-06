@@ -40,3 +40,14 @@ Dieser Option liegt die Idee zugrunde, dass die Umlaute auf den Tasten liegen so
 Man wird dadurch kaum Probleme haben, wenn man mal nicht die US-Tastatur verwendet, sondern z.B. auf der Arbeit zur Verwendung der deutschen Tastatur gezwungen ist. Wären die Umlaute auf der US-Tastatur als Option irgendwie anders gelegt, dann hätte man bei jedem Wechsel Probleme mit der Umstellung. Die Verwendung von Compose unter X / Wayland wäre zudem wesentlich umständlicher zu tippen. Das Tippen bleibt mit meiner Option viel flüssiger.
 
 Raoul
+
+
+More tips and tricks
+====================
+
+To type unicode characters press Ctrl+Shift+u <code><enter>
+
+https://askubuntu.com/questions/358/how-can-i-type-accented-characters-like-%C3%AB
+
+
+Interesting project: https://github.com/emareg/unikeyboard

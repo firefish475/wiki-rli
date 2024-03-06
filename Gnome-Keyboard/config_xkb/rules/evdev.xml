@@ -14,6 +14,24 @@
           <description>Raoul altgr-syms</description>
         </configItem>
       </option>
+      <option>
+        <configItem>
+          <name>raoul:altgr-umlauts</name>
+          <description>Raoul altgr-umlauts</description>
+        </configItem>
+      </option>
+      <option>
+        <configItem>
+          <name>raoul:altgr-signs</name>
+          <description>Raoul altgr-signs</description>
+        </configItem>
+      </option>
+      <option>
+        <configItem>
+          <name>raoul:altgr-euro-cent</name>
+          <description>Raoul altgr-euro-cent</description>
+        </configItem>
+      </option>
     </group>
   </optionList>
 </xkbConfigRegistry>

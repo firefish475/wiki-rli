@@ -42,8 +42,10 @@ partial alphanumeric_keys
 xkb_symbols "altgr-euro-cent" {
 
 // Euro on "e"
-    // key <AD03> { [   NoSymbol,   NoSymbol,      EuroSign,        cent ] };
+//    key <AD03> { [   NoSymbol,   NoSymbol,      EuroSign,        cent ] };
+    key <AD03> { [   NoSymbol,   NoSymbol,      NoSymbol,        cent ] };
 
 // Euro on "5"
-    key <AE05> { [   NoSymbol,   NoSymbol,      EuroSign,        cent ] };
+//    key <AE05> { [   NoSymbol,   NoSymbol,      EuroSign,        cent ] };
+    key <AE05> { [   NoSymbol,   NoSymbol,      NoSymbol,        cent ] };
 };

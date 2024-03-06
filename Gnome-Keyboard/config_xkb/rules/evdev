@@ -2,3 +2,7 @@
 
 ! option        	=       symbols
   raoul:altgr-syms      =       +raoul(altgr-syms)
+  raoul:altgr-umlauts	=	+raoul(altgr-umlauts)
+  raoul:altgr-signs	=	+raoul(altgr-signs)
+  raoul:altgr-euro-cent	=	+raoul(altgr-euro-cent)
+
