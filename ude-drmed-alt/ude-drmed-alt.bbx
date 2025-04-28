@@ -1,0 +1,76 @@
+\ProvidesFile{literatur.bbx}[2023/10/01 v1.0 biblatex bibliography style]
+
+\RequireBibliographyStyle{standard}
+
+\DeclareNameAlias{author}{last-first}
+\DeclareNameAlias{editor}{last-first}
+
+\DeclareBibliographyDriver{article}{%
+  \usebibmacro{bibindex}%
+  \usebibmacro{begentry}%
+  \printnames{author}%
+  \setunit{\addspace}%
+  \printtext[parens]{\printfield{year}}%
+  \setunit{\addcolon\space}%
+  \printfield{title}%
+  \setunit{\addperiod\space}%
+  \printfield{journaltitle}%
+  \setunit{\addspace}%
+  \printfield{volume}%
+  \setunit{\addcomma\space}%
+  \printfield{pages}%
+  \setunit{\addperiod\space}%
+  \usebibmacro{finentry}}
+
+\DeclareBibliographyDriver{book}{%
+  \usebibmacro{bibindex}%
+  \usebibmacro{begentry}%
+  \printnames{author}%
+  \setunit{\addspace}%
+  \printtext[parens]{\printfield{year}}%
+  \setunit{\addcolon\space}%
+  \printfield{title}%
+  \setunit{\addperiod\space}%
+  \printfield{edition}%
+  \setunit{\addperiod\space}%
+  \printlist{location}%
+  \setunit{\addcolon\space}%
+  \printlist{publisher}%
+  \setunit{\addsemicolon\space}%
+  \printfield{pages}%
+  \setunit{\addperiod\space}%
+  \usebibmacro{finentry}}
+
+\DeclareBibliographyDriver{incollection}{%
+  \usebibmacro{bibindex}%
+  \usebibmacro{begentry}%
+  \printnames{author}%
+  \setunit{\addspace}%
+  \printtext[parens]{\printfield{year}}%
+  \setunit{\addcolon\space}%
+  \printfield{title}%
+  \newunit\newblock%
+  \bibstring{in}%
+  \setunit{\addcolon\space}%
+  \printnames{editor}%
+  \setunit{\addcolon\space}%
+  \printfield{booktitle}%
+  \setunit{\addcomma\space}%
+  \printfield{series}%
+  \setunit{\addcomma\space}%
+  \printfield{volume}%
+  \setunit{\addcomma\space}%
+  \printtext[parens]{S.}%
+  \printfield{pages}%
+  \setunit{\addperiod\space}%
+  \printlist{location}%
+  \setunit{\addcolon\space}%
+  \printlist{publisher}%
+  \setunit{\addperiod\space}%
+  \usebibmacro{finentry}}
+
+\DeclareFieldFormat{in}{%
+	\mkbibemph{\underline{\bibstring{in}\addcolon}\space}%
+}
+
+\endinput
