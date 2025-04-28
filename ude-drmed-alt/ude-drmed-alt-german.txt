@@ -1,0 +1,40 @@
+Erstelle mir die bbx- und cbx-Dateien für biblatex für ein speziell formatiertes Literaturverzeichnis. Im später zu erstellenden LaTeX-Dokument soll biblatex Datei literatur.bib verwenden, die aus Zotero mit BetterBibTeX exportiert wurde.
+
+Das mit den bbx- und cbx-Dateien erstellte Literaturverzeichnis soll alphabetisch sein.
+
+Für das Literaturverzeichnis sollen folgende Regeln gelten:
+
+Für Zeitschriftenaufsätze soll das Format verwendet werden:
+Autorennamen; Initialen nachgestellt; Erscheinungsjahr in runden Klammern; Doppelpunkt; vollständiger Aufsatztitel (bei englischsprachigen Aufsatztiteln Kleinschreibung); Zeitschriftentitel abgekürzt lt. "Index Medicus"; Band bzw. Jahrgang (unterstrichen); Komma; erste und letzte Seite des Artikels.
+
+Also als Beispiel:
+
+Martin, E., Russell, D., Goodwin, S., Chapman, R., North, M., Sheridan, P. (1991):
+Why patients consult and what happens when they do.
+Br. Med. J. 303, 289-292.
+
+Für Bücher (Verfasserwerke von höchstens drei Verfassern) soll das Format verwendet werden:
+Verfassernamen; Initialen nachgestellt; Erscheinungsjahr in runden Klammern; Doppelpunkt; Buchtitel (auch bei enlischsprachigen Buchtiteln Großschreibung); Auflage (ab 2. Aufl.); Erscheinungsort (bei mehr als drei nach dem ersten Erscheinungsort "(usw.)" ergänzen); Doppelpunkt; Verlag; Semikolon; evtl. Seitenhinweis.
+
+Also als Beispiel:
+
+Spiro, H.M. (1977):
+Clinical Gastroenterology. 2. Ed.
+New York: Macmillan.
+
+Oder noch ein Beispiel:
+
+Burck, K.B., Liu, E.T., Larrick, J.W. (1988):
+Oncogenes: An Introduction to the Concept of Cancer
+Genes. New York, Berlin, Heidelberg (usw.):
+Springer-Verl.; s. bes. S. 99.
+
+Für Buchbeiträge (Herausgeberwerke) soll das Format verwendet werden:
+Alle Autorennamen; Erscheinungsjahr in runden Klammern; Doppelpunkt; Aufsatztitel; Punkt; danach "In:"; sämtliche Herausgebernamen; in runden Klammern "Hrsg." bzw. "Ed." oder "Eds." anfügen; Doppelpunkt; Buchtitel; evtl. Reihentitel mit Bandangabe; erste und letzte Seite des zitierten Artikels (Anders als bei den Zeitschriftenzitaten wird der Seitenangabe ein "S." vorangestellt), Verlagsort; Doppelpunkt; Verlag.
+
+Also als Beispiel:
+
+Goust, M.M. (1990): Major histocompatibility complex.
+In: Virella, G., Goust, J.M., Fudenberg, H.H. (Eds.): Introduction to Medical Immunology.
+2. Ed. Immunology Ser. Vol. 50; S. 31-51. New York,
+Basel: Dekker
