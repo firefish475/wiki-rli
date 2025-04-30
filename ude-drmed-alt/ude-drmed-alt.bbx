@@ -1,76 +1,217 @@
 \ProvidesFile{literatur.bbx}[2023/10/01 v1.0 biblatex bibliography style]
 
+% based on /usr/share/texmf-dist/tex/latex/biblatex/bbx/standard.bbx
 \RequireBibliographyStyle{standard}
 
-\DeclareNameAlias{author}{last-first}
-\DeclareNameAlias{editor}{last-first}
+% last name, then initials
+\DeclareNameAlias{author}{family-given}
+\DeclareNameAlias{editor}{family-given}
+
+\DefineBibliographyStrings{german}{%
+  editor = {(Hrsg.)},
+  editors = {(Hrsg.)},
+}
+
+\DefineBibliographyStrings{english}{%
+  editor = {(Ed.)},
+  editors = {(Eds.)},
+}
+
+% use title instead of "title"
+\DeclareFieldFormat[article]{title}{#1}
+\DeclareFieldFormat[incollection]{title}{#1}
+
+% use "et al." even when \usepackage[german]{babel}
+\DefineBibliographyStrings{german}{%
+  andothers = {et\addabbrvspace al\adddot},
+}
+
+% no italics in titles:
+\renewbibmacro*{title}{%
+  \ifboolexpr{
+    test {\iffieldundef{title}}
+    and
+    test {\iffieldundef{subtitle}}
+  }
+    {}
+    {\printtext{%
+       \printfield[titlecase]{title}%
+       \setunit{\subtitlepunct}%
+       \printfield[titlecase]{subtitle}}}%
+}
+
+\DeclareFieldFormat{in}{%
+	\mkbibemph{\underline{\bibstring{in}\addcolon}\space}%
+}
+
 
 \DeclareBibliographyDriver{article}{%
   \usebibmacro{bibindex}%
   \usebibmacro{begentry}%
-  \printnames{author}%
-  \setunit{\addspace}%
-  \printtext[parens]{\printfield{year}}%
-  \setunit{\addcolon\space}%
-  \printfield{title}%
-  \setunit{\addperiod\space}%
-  \printfield{journaltitle}%
-  \setunit{\addspace}%
-  \printfield{volume}%
+  \usebibmacro{author/translator+others}%
+  \setunit{\labelnamepunct}\newblock
+  \setunit{\printdelim{nametitledelim}}
+  \printtext{\mkbibparens{\printfield{year}}}%
+  \setunit{\addcolon\space\\}%
+  \usebibmacro{title}%
+  \newunit
+  \printtext{\space\\}%
+  \printlist{language}%
+  \newunit\newblock
+  \usebibmacro{byauthor}%
+  \newunit\newblock
+  \usebibmacro{bytranslator+others}%
+  \newunit\newblock
+  \printfield{version}%
+  \newunit\newblock
+  %\usebibmacro{in:}%
+  %\usebibmacro{journal+issuetitle}%
+  %\newunit
+  %\usebibmacro{byeditor+others}%
+  %\newunit
+  \usebibmacro{journal}%
+  \printtext{\underline{\printfield{volume}}}%
   \setunit{\addcomma\space}%
-  \printfield{pages}%
-  \setunit{\addperiod\space}%
+  \printfield{number}%
+  \setunit{\addcomma\space}%
+  \printfield{eid}%
+  \newunit
+  \usebibmacro{byeditor+others}%
+  \newunit
+  \usebibmacro{note+pages}%
+  \newunit\newblock
+  \iftoggle{bbx:isbn}
+    {\printfield{issn}}
+    {}%
+  \newunit\newblock
+  \usebibmacro{doi+eprint+url}%
+  \newunit\newblock
+  \usebibmacro{addendum+pubstate}%
+  \setunit{\bibpagerefpunct}\newblock
+  \usebibmacro{pageref}%
+  \newunit\newblock
+  \iftoggle{bbx:related}
+    {\usebibmacro{related:init}%
+     \usebibmacro{related}}
+    {}%
   \usebibmacro{finentry}}
 
 \DeclareBibliographyDriver{book}{%
   \usebibmacro{bibindex}%
   \usebibmacro{begentry}%
-  \printnames{author}%
-  \setunit{\addspace}%
-  \printtext[parens]{\printfield{year}}%
-  \setunit{\addcolon\space}%
-  \printfield{title}%
-  \setunit{\addperiod\space}%
+  \usebibmacro{author/editor+others/translator+others}%
+  \setunit{\printdelim{nametitledelim}}%
+  \printtext{\mkbibparens{\printfield{year}}}%
+  \setunit{\addcolon\space\\}%
+  \newblock
+  \usebibmacro{maintitle+title}%
+  \newunit
+  \printlist{language}%
+  \newunit\newblock
+  \usebibmacro{byauthor}%
+  \newunit\newblock
+  \usebibmacro{byeditor+others}%
+  \newunit\newblock
   \printfield{edition}%
-  \setunit{\addperiod\space}%
+  \printtext{\space\\}%
+  \newunit
+  \iffieldundef{maintitle}
+    {\printfield{volume}%
+     \printfield{part}}
+    {}%
+  \newunit
+  \printfield{volumes}%
+  \newunit\newblock
+  \usebibmacro{series+number}%
+  \newunit\newblock
+  %\usebibmacro{publisher+location+date}%
   \printlist{location}%
   \setunit{\addcolon\space}%
   \printlist{publisher}%
-  \setunit{\addsemicolon\space}%
-  \printfield{pages}%
-  \setunit{\addperiod\space}%
+  \setunit*{\addcomma\space}%
+  \printfield{note}%
+  \newunit\newblock
+  %\printlist{publisher}% <-- This line prints the publisher
+  %\setunit*{\addcomma\space}%
+  %\printlist{location}% <-- This line prints the location
+  %\newunit\newblock
+  \usebibmacro{chapter+pages}%
+  \newunit
+  \printfield{pagetotal}%
+  \newunit\newblock
+  \iftoggle{bbx:isbn}
+    {\printfield{isbn}}
+    {}%
+  \newunit\newblock
+  \usebibmacro{doi+eprint+url}%
+  \newunit\newblock
+  \usebibmacro{addendum+pubstate}%
+  \setunit{\bibpagerefpunct}\newblock
+  \usebibmacro{pageref}%
+  \newunit\newblock
+  \iftoggle{bbx:related}
+    {\usebibmacro{related:init}%
+     \usebibmacro{related}}
+    {}%
   \usebibmacro{finentry}}
 
 \DeclareBibliographyDriver{incollection}{%
   \usebibmacro{bibindex}%
   \usebibmacro{begentry}%
-  \printnames{author}%
-  \setunit{\addspace}%
-  \printtext[parens]{\printfield{year}}%
+  \usebibmacro{author/translator+others}%
+  \setunit{\printdelim{nametitledelim}}\newblock
+  \printtext{\mkbibparens{\printfield{year}}}%
   \setunit{\addcolon\space}%
-  \printfield{title}%
-  \newunit\newblock%
-  \bibstring{in}%
-  \setunit{\addcolon\space}%
-  \printnames{editor}%
-  \setunit{\addcolon\space}%
-  \printfield{booktitle}%
-  \setunit{\addcomma\space}%
-  \printfield{series}%
-  \setunit{\addcomma\space}%
-  \printfield{volume}%
-  \setunit{\addcomma\space}%
-  \printtext[parens]{S.}%
-  \printfield{pages}%
-  \setunit{\addperiod\space}%
+  \usebibmacro{title}%
+  \setunit{\addcolon\space\\}%
+  \newunit
+  \printlist{language}%
+  \newunit\newblock
+  \usebibmacro{byauthor}%
+  \printtext{\space\\}%
+  \newunit\newblock
+  \printtext{\underline{In\addcolon}\space}%
+  \usebibmacro{editor+others}%
+  \printtext{\setunit{\addcolon\space}}%
+  \newunit\newblock
+  \usebibmacro{maintitle+booktitle}%
+  \newunit\newblock
+  \printfield{edition}%
+  \newunit
+  \iffieldundef{maintitle}
+    {\printfield{volume}%
+     \printfield{part}}
+    {}%
+  \newunit
+  \printfield{volumes}%
+  \newunit\newblock
+  \printtext{XXX}
+  \usebibmacro{series+number}%
+  \newunit\newblock
+  \printfield{note}%
+  \newunit\newblock
+  %\usebibmacro{publisher+location+date}%
   \printlist{location}%
   \setunit{\addcolon\space}%
   \printlist{publisher}%
-  \setunit{\addperiod\space}%
+  \setunit*{\addcomma\space}%
+  \newunit\newblock
+  \usebibmacro{chapter+pages}%
+  \newunit\newblock
+  \iftoggle{bbx:isbn}
+    {\printfield{isbn}}
+    {}%
+  \newunit\newblock
+  \usebibmacro{doi+eprint+url}%
+  \newunit\newblock
+  \usebibmacro{addendum+pubstate}%
+  \setunit{\bibpagerefpunct}\newblock
+  \usebibmacro{pageref}%
+  \newunit\newblock
+  \iftoggle{bbx:related}
+    {\usebibmacro{related:init}%
+     \usebibmacro{related}}
+    {}%
   \usebibmacro{finentry}}
-
-\DeclareFieldFormat{in}{%
-	\mkbibemph{\underline{\bibstring{in}\addcolon}\space}%
-}
 
 \endinput

@@ -1,16 +1,86 @@
 \documentclass{article}
 \usepackage[utf8]{inputenc}
+\usepackage[german]{babel}
 \usepackage[T1]{fontenc}
-\usepackage[backend=biber,citestyle=authoryear, bibstyle=ude-drmed-alt]{biblatex}
+\usepackage[backend=biber,citestyle=authoryear, bibstyle=ude-drmed-alt, maxnames=9999, maxcitenames=2]{biblatex}
 \addbibresource{literatur.bib}
 
 \begin{document}
 
-\section{Einleitung}
-Hier ist ein Beispiel für ein Zitat von Zeitschriftenaufsätzen \parencite{martin1991}.
+\section{Criteria the biblatex style in development should meet}
+
+\section{This section is in german}
+
+Hier ist ein Beispiel für ein Zitat von Zeitschriftenaufsätzen vom entrytype article \parencite{martin1991}.
 
 Außerdem zitieren wir noch Bücher, und zwar Verfasserwerke wie \cite{spiro1977} und \cite{burck1988}
-und Herausgeberwerke wie \cite{goust1990}.
+und Herausgeberwerke wie \cite{goust1990} vom entrytype incollection.
+
+The incollection entrytype isn't printed as expected.
+
+\begin{quote}
+Goust, M.M. (1990): Major histocompatibility complex.\\
+In: Virella, G., Goust, J.M., Fudenberg, H.H. (Eds.): Introduction to Medical Immunology.\\
+2. Ed. Immunology Ser. Vol. 50; S. 31-51. New York, Basel: Dekker
+\end{quote}
+
+
+\subsection{Angaben zum Aussehen von extern}
+
+\begin{quote}
+Das alphabetische Literaturverzeichnis muss entsprechend der
+Zitierweise des Index Medicus erstellt und durchnumeriert wer-
+den.
+\end{quote}
+
+\begin{quote}
+Zitieren im Text: Namen von 1 - 2 Verfassern oder bei mehr als 2 Verfassern Na-
+me des Erstautors et al., danach Jahreszahl der Publikation.
+\end{quote}
+
+\begin{quote}
+	1. Zeitschriftenaufsätze
+Autorennamen; Initialen nachgestellt; Erscheinungsjahr in runden Klammern; Doppelpunkt; voll-
+ständiger Aufsatztitel (bei englischsprachigen Aufsatztiteln Kleinschreibung); Zeitschriftentitel ab-
+gekürzt lt. "Index Medicus"; Band bzw. Jahrgang (unterstrichen); Komma; erste und letzte Seite des
+Artikels.
+Beispiel: Martin, E., Russell, D., Goodwin, S., Chapman, R.,
+North, M., Sheridan, P. (1991):
+Why patients consult and what happens when they do.
+Br. Med. J. 303, 289-292.
+2. Bücher (Verfasserwerke von höchstens drei Verfassern)
+Verfassernamen; Initialen nachgestellt; Erscheinungsjahr in runden Klammern; Doppelpunkt; Buch-
+titel (auch bei enlischsprachigen Buchtiteln Großschreibung); Auflage (ab 2. Aufl.); Erschei-
+nungsort (bei mehr als drei nach dem ersten Erscheinungsort "(usw.)" ergänzen); Doppelpunkt;
+Verlag; Semikolon; evtl. Seitenhinweis.
+Beispiele: Spiro, H.M. (1977):
+Clinical Gastroenterology. 2. Ed.
+New York: Macmillan.
+Burck, K.B., Liu, E.T., Larrick, J.W. (1988):
+Oncogenes: An Introduction to the Concept of Cancer
+Genes. New York, Berlin, Heidelberg (usw.):
+Springer-Verl.; s. bes. S. 99.Anlage 2b
+3. Buchbeiträge (Herausgeberwerke)
+Alle Autorennamen; Erscheinungsjahr in runden Klammern; Doppelpunkt; Aufsatztitel; Punkt; da-
+nach "In:"; sämtliche Herausgebernamen; in runden Klammern "Hrsg." bzw. "Ed." oder "Eds." an-
+fügen; Doppelpunkt; Buchtitel; evtl. Reihentitel mit Bandangabe; erste und letzte Seite des zitierten
+Artikels (Anders als bei den Zeitschriftenzitaten wird der Seitenangabe ein"S." vorangestellt), Ver-
+lagsort; Doppelpunkt; Verlag.
+Beispiel: Goust, M.M. (1990): Major histocompatibility complex.
+In: Virella, G., Goust, J.M., Fudenberg, H.H. (Eds.): Introduction to Medical Im-
+munology.
+2. Ed. Immunology Ser. Vol. 50; S. 31-51. New York,
+Basel: Dekker
+4. Online Zitate
+im Text wie bei anderen Titeln auch den Autor erwähnen:
+'Miller et al. 2003' und dann im Literaturverzeichnis die online - Quelle
+im Detail auflisten. Das heisst, dort muss stehen :
+Miller G, Schulz C, Meier F: Die Therapie des Tumorleidens. Onkologie 2003,
+Online-Publikation; www.Onkologie/ausgabe123/3
+Der Leser muss in der Lage sein, die zitierten Arbeiten/Angaben ohne weitere Recherchen im Inter-
+net zu finden. Die Autoren werden im Text wie bei konventionellen Zitaten genannt (Miller et al.
+2003)
+\end{quote}
 
 \printbibliography
 
