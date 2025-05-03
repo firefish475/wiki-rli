@@ -2,10 +2,74 @@
 % make this file UTF8: äöüß
 
 % based on /usr/share/texmf-dist/tex/latex/biblatex/bbx/authoryear.bbx
-\renewcommand*{\nametitledelim}{\addcolon\space\newline}
+% which itself is based on standard.bbx
 \RequireBibliographyStyle{authoryear}
 
-%\DeclareDelimFormat{nametitledelim}{\addcolon\newline}
+% use as many existing options as possible to meet the requirements
+\ExecuteBibliographyOptions{sorting=nyt, maxnames=9999, maxcitenames=2,
+	mergedate=compact,
+	sorting=nyt,
+	date=year,
+	firstinits=false,
+	url=false, doi=false, isbn=false, eprint=false}
+
+% after (year) use ": " instead of ". "
+\DeclareDelimFormat[bib]{nametitledelim}{\addcolon\space}
+
+% No double quotes "" around title
+\DeclareFieldFormat[article,book,incollection]{citetitle}{#1}
+\DeclareFieldFormat[article,book,incollection]{title}{#1}
+
+\DeclareFieldFormat{in}{%
+	\mkbibemph{\underline{\bibstring{in}\addcolon}\space}%
+}
+
+% No "In: " for @article
+% and underline "In:" including ":" but not the space afterwards
+\renewcommand*{\intitlepunct}{\space}
+\renewbibmacro{in:}{%
+	\ifentrytype{article}{}{\printtext{\mkbibemph{\underline{\bibstring{in}\addcolon}\intitlepunct}}}}
+%         \printtext{\bibstring{in}\intitlepunct}}}
+
+% underline volume number for @article
+\DeclareFieldFormat[article]{volume}{\underline{#1}}
+
+% last name, then initials
+\DeclareNameAlias{author}{family-given}
+\DeclareNameAlias{editor}{family-given}
+
+% use "et al." even when \usepackage[german]{babel}
+\DefineBibliographyStrings{german}{%
+  andothers = {et\addabbrvspace al\adddot},
+}
+
+\DefineBibliographyStrings{german}{%
+  editor = {(Hrsg.)},
+  editors = {(Hrsg.)},
+}
+
+\DefineBibliographyStrings{english}{%
+  editor = {(Ed.)},
+  editors = {(Eds.)},
+}
+
+% % no italics in titles:
+% \renewbibmacro*{title}{%
+%   \ifboolexpr{
+%     test {\iffieldundef{title}}
+%     and
+%     test {\iffieldundef{subtitle}}
+%   }
+%     {}
+%     {\printtext{%
+%        \printfield[titlecase]{title}%
+%        \setunit{\subtitlepunct}%
+%        \printfield[titlecase]{subtitle}}}%
+% }
+
+\DeclareFieldFormat{in}{%
+	\mkbibemph{\underline{\bibstring{in}\addcolon}\space}%
+}
 
 \endinput
 

@@ -2,10 +2,54 @@
 \usepackage[utf8]{inputenc}
 \usepackage[german]{babel}
 \usepackage[T1]{fontenc}
-\usepackage[backend=biber,citestyle=authoryear, bibstyle=ude-drmed-alt, maxnames=9999, maxcitenames=2]{biblatex}
+% \usepackage[backend=biber, style=ude-authoryear-addon, maxnames=9999, maxcitenames=2]{biblatex}
+\usepackage[backend=biber, style=ude-authoryear-addon]{biblatex}
 \addbibresource{literatur.bib}
 
+
 \begin{document}
+
+\section{Examples as they should look like}
+
+\subsection{@article}
+
+\begin{quote}
+Martin, E., Russell, D., Goodwin, S., Chapman, R., North, M., Sheridan, P. (1991):\\
+Why patients consult and what happens when they do.\\
+Br. Med. J. \underline{303}, 289-292.
+\end{quote}
+
+\subsection{@book 1}
+
+Books with not more than three authors.
+
+\begin{quote}
+Spiro, H.M. (1977):\\
+Clinical Gastroenterology. 2. Ed.\\
+New York: Macmillan.
+\end{quote}
+
+\begin{quote}
+Burck, K.B., Liu, E.T., Larrick, J.W. (1988):\\
+Oncogenes: An Introduction to the Concept of Cancer Genes.\\
+New York, Berlin, Heidelberg (usw.):\\
+Springer-Verl.; s. bes. S. 99.
+\end{quote}
+
+\subsection{@book 2}
+
+\begin{quote}
+Goust, M.M. (1990): Major histocompatibility complex.\\
+\underline{In:} Virella, G., Goust, J.M., Fudenberg, H.H. (Eds.): Introduction to Medical Immunology.\\
+2. Ed. Immunology Ser. Vol. 50; S. 31-51. New York, Basel: Dekker
+\end{quote}
+
+\section{What I did so far}
+
+My first approach was to use extend standard.bbx by creating an own bbx-file. The results are quite ok and I put them here: \url=https://github.com/firefish475/wiki-rli/tree/main/ude-drmed-alt=
+
+A lot of stuff shouldn't be really good, as I focussed on re-building the required format without paying any attention to additional information which could be included in the bibliography. So my next approach was to use a biblatex-style which more closely resembles what is required and try to tweak it. This biblatex-style would be authoryear.bbx. Unfortunately so far not even changing the ``.'' by a colon works so far.
+
 
 \section{Criteria the biblatex style in development should meet}
 
