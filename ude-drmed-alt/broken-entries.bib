@@ -8,3 +8,40 @@
         ORGANIZATION="Williams and Wilkins, Baltimore, MD"
 }
 
+
+Fixed:
+
+@mvbook{handbook_of_physiology,
+  title     = {Handbook of Physiology},
+  series    = {Section 1: Neurophysiology},
+  publisher = {Williams \& Wilkins},
+  address   = {Baltimore, MD},
+  year      = {1977},
+  note      = {Erschienen seit 1977 in mehreren Bänden}
+}
+
+@book{handbook_of_physiology_motor_control,
+  editor    = {Brooks, V. B.},
+  title     = {Motor Control},
+  volume    = {II},
+  series    = {Handbook of Physiology, Section 1: Neurophysiology},
+  publisher = {Williams \& Wilkins},
+  address   = {Baltimore, MD},
+  year      = {1981},
+  crossref  = {handbook_of_physiology} % Verweist auf das Gesamtwerk
+}
+
+@incollection{bloedelHandbookOfPhysiology1981,
+  author    = {Bloedel, J. R. and Courville, J.},
+  title     = {A review of cerebellar afferent systems},
+  pages     = {735--830},
+  booktitle = {Motor Control},
+  editor    = {Brooks, V. B.},
+  volume    = {II},
+  series    = {Handbook of Physiology, Section 1: Neurophysiology},
+  publisher = {Williams \& Wilkins},
+  address   = {Baltimore, MD},
+  year      = {1981},
+  crossref  = {handbook_of_physiology_motor_control} % Verweist auf den spezifischen Band
+}
+
