@@ -1,5 +1,24 @@
+// use xkb options instead of variants
+// https://www.blaenkdenum.com/posts/custom-xkb-options-with-gnome/
+//
+// 1. export the locale stuff
+// 7. put locales in ~/.config/locale.conf
+// 5. gsettings set org.gnome.desktop.input-sources sources "[('xkb','us'), ('xkb', 'de')]"
+// 6. gsettings set org.gnome.desktop.input-sources xkb-options "['raoul:altgr-syms']"
+// .config/locale.conf 
+// call gnome-tweak: Keyboard -> Additional Layout Options -> Raoul's addons
+//
+// LANG="en_US.UTF-8"
+// LC_CTYPE="de_DE.UTF-8"
+// LC_PAPER="de_DE.UTF-8"
+// LC_MEASUREMENT="de_DE.UTF-8"
+
+
 partial alphanumeric_keys
+
 xkb_symbols "altgr-syms" {
+
+	// included einfach alle options:
 
 	// WTF! eurosign is missing cent
 	// include "eurosign(e)"
@@ -11,14 +30,15 @@ xkb_symbols "altgr-syms" {
 
 	include "raoul(altgr-euro-cent)"
 
-	include "level3(ralt_switch)"
-
 };
 
-partial alphanumeric_keys
 xkb_symbols "altgr-umlauts" {
 
-    name[Group1]= "German Umlauts - hold AltGr and press german position";
+	name[Group1]= "German Umlauts - hold AltGr and press german position";
+	//name[Group2]= "German Umlauts - hold AltGr and press german position";
+
+	// uses AltGr
+	include "level3(ralt_switch)"
 
     // Alphanumeric section
     key <AC10> { [   NoSymbol,   NoSymbol,    odiaeresis,  Odiaeresis ] };
@@ -27,10 +47,13 @@ xkb_symbols "altgr-umlauts" {
     key <AE11> { [   NoSymbol,   NoSymbol,        ssharp,      ssharp ] };
 };
 
-partial alphanumeric_keys
 xkb_symbols "altgr-signs" {
 
-    name[Group1]= "Frequently used signs - hold AltGr and press character";
+	name[Group1]= "Frequently used signs - hold AltGr and press character";
+	//name[Group2]= "Frequently used signs - hold AltGr and press character";
+
+	// uses AltGr
+	include "level3(ralt_switch)"
 
     // Alphanumeric section
     key <AB07> { [   NoSymbol,   NoSymbol,            mu,          mu ] };
@@ -38,8 +61,13 @@ xkb_symbols "altgr-signs" {
     key <LSGT> { [ guillemotleft, guillemotright, rightarrow, leftarrow ] };
 };
 
-partial alphanumeric_keys
 xkb_symbols "altgr-euro-cent" {
+
+	name[Group1]= "Euro and cent signs - hold AltGr and press character";
+	//name[Group2]= "Euro and cent signs - hold AltGr and press character";
+
+	// uses AltGr
+	include "level3(ralt_switch)"
 
 // Euro on "e"
 //    key <AD03> { [   NoSymbol,   NoSymbol,      EuroSign,        cent ] };

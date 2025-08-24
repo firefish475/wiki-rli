@@ -3,11 +3,16 @@
 \usepackage[german]{babel}
 \usepackage[T1]{fontenc}
 % \usepackage[backend=biber, style=ude-authoryear-addon, maxnames=9999, maxcitenames=2]{biblatex}
-\usepackage[backend=biber, style=ude-authoryear-addon]{biblatex}
+\usepackage[backend=biber, style=ude-cite-promoord-alt]{biblatex}
 \addbibresource{literatur.bib}
+\addbibresource{biblatex-examples.bib}
 
 
 \begin{document}
+
+\section{test}
+
+hi \nocite{*}
 
 \section{Examples as they should look like}
 
@@ -54,6 +59,8 @@ A lot of stuff shouldn't be really good, as I focussed on re-building the requir
 \section{Criteria the biblatex style in development should meet}
 
 \section{This section is in german}
+
+Es sollte mal einen bib-Datei geben, die zumindest für @book und @article ENTRYTYPES alle möglichen Felder beinhaltet mit Feldinhalt wie Feldname, wie zum Beispiel hier \cite{einbuchmitallenfeldern}. Das habe ich auch mit englischen Inhalten \cite{abookwithallfields}.
 
 Hier ist ein Beispiel für ein Zitat von Zeitschriftenaufsätzen vom entrytype article \parencite{martin1991}.
 

@@ -1,0 +1,53 @@
+@startuml
+!define osaPuml https://raw.githubusercontent.com/Crashedmind/PlantUML-opensecurityarchitecture2-icons/master
+!include osaPuml/Common.puml
+!include osaPuml/User/all.puml
+!include osaPuml/Hardware/all.puml
+!include osaPuml/Misc/all.puml
+!include osaPuml/Server/all.puml
+!include osaPuml/Site/all.puml
+
+together {
+osa_user_blue(Anna, "Anna", "Bewohner", "Benutzer")
+osa_user_blue_tie(Erwin, "Erwin", "Bewohner", "Benutzer")
+}
+
+together {
+osa_desktop(pc, "PC", "Windows 11", "ip: 192.168.178.5\nmask: 255.255.255.0\ngw: 192.168.178.6")
+note right of pc
+  Der alte Stand-PC mit der Bluetooth-Box
+  Gateway ist der DD-WRT Router!!!
+end note
+
+osa_laptop(laptop, "Laptop", "Windows 10", "nw: Fritz!Box 7520 VZ\nip: 192.168.178.x")
+note right of laptop
+  Erwin's Laptop
+end note
+}
+
+osa_device_wireless_router(fritz, "Fritz-Box", "Fritz!Box 7520 VZ", "nw: Fritz!Box 7520 VZ\nip:192.168.178.1\nmask: 255.255.255.0")
+note right of fritz
+Fritz-Box hinter der Pflanze an der Wand
+end note
+
+osa_device_wireless_router(ddwrt, "DD-WRT Router", "DD-WRT Router station bridge", "nw: Fritz!Box 7520 VZ\nip: 192.168.178.6\nmask: 255.255.255.0")
+note right of ddwrt
+Raoul's WLAN Rouer
+end note
+
+osa_cloud(cloud, "Internet", "Network")
+
+
+Anna --> pc: Solitaire / Video
+Erwin --> laptop: Email / Durcken
+Erwin --> pc: macht auch mal was
+
+laptop --> fritz: WLAN
+
+
+pc --> ddwrt: Netzwerk-Kabel
+ddwrt --> fritz: Wifi bridge
+
+fritz --> cloud
+
+@enduml
